@@ -1,0 +1,138 @@
+.temperature-box-wrapper {
+	border: 1px solid red;
+	border-radius: 10px;
+	/* From https://css.glass */
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.temperature-box {
+	color: red;
+}
+
+.severity-box-wrapper {
+	border: 1px solid red;
+	border-radius: 10px;
+	/* From https://css.glass */
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.severity-box {
+	color: red;
+}
+
+.list-wrapper {
+	max-height: 860px;
+	overflow: auto;
+}
+
+.list-item {
+	border: 1px solid;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	/* From https://css.glass */
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.good {
+	border: 1px solid #00d700;
+	color: #00d700 !important;
+}
+.moderate {
+	border: 1px solid yellow;
+	color: yellow !important;
+}
+.unhealthy {
+	border: 1px solid red;
+	color: red !important;
+}
+
+.good-color {
+	color: #00d700 !important;
+}
+.moderate-color {
+	color: rgb(223, 223, 64) !important;
+}
+.unhealthy-color {
+	color: red !important;
+}
+
+.map-container {
+	height: 700px;
+	width: 100%;
+}
+
+.drop-down-box {
+	padding: 10px;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+@media screen and (max-width: 425px) {
+	.temp-container {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.list-item {
+		flex-direction: column;
+	}
+
+	.location {
+		flex-wrap: wrap;
+		width: 100% !important;
+	}
+
+	.co-data {
+		width: 100% !important;
+		flex-wrap: wrap;
+	}
+
+	.co {
+		padding: 10px !important;
+		margin-right: 10px !important;
+	}
+
+	.severity-wrapper {
+		width: 100% !important;
+		flex-wrap: wrap;
+	}
+
+	.severity {
+		margin-right: 10px !important;
+		padding: 10px !important;
+	}
+
+	.sensor {
+		padding: 10px !important;
+		margin-right: 0px !important;
+	}
+
+	h1 {
+		font-size: 2rem !important;
+	}
+
+	h2 {
+		font-size: 2rem !important;
+	}
+
+	.Details__Form {
+		flex-wrap: wrap;
+	}
+}

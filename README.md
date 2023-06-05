@@ -39,6 +39,34 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Folder structure
+
+```
+project-name
+└───src
+│   │   file011.txt
+│   │   file012.txt
+│   └───assets
+│   	└───images   all images must be placed here
+│   	└───styles   all css will go here
+│   	└───styles   all 3rd party/vendor css will go here
+│   └───features
+│   	└───login
+│   		└───component	all stateless/stateful components go here
+│   		└───container  all redux connected components go here
+│   		└───store
+|		    - login.store.ts
+|		    - login.action.ts
+│		- login.module.css	any css that is particular to login module should be placed here
+│   	└───dashboard
+│   └───shared
+|	└───components	reusable common components go here
+|	└───services	reusable common services (i.e. httpService) go here
+|	└───themes	this directory holds theme files which contains colors which define overall look of the app
+|	└───utils	resuable common utility functions/libs go here
+...other files
+```
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).

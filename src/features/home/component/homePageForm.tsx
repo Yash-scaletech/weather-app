@@ -48,7 +48,7 @@ const HomePageForm = () => {
 							/>
 							{errMsg && <div className='error'>Please Enter Valid City Name</div>}
 							<button className='p--10 font-size--14px font-weight--700' type='submit' disabled={!isValid}>
-								Submit
+								Search
 							</button>
 						</form>
 					);

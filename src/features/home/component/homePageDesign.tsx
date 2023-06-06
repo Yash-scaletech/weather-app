@@ -1,5 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 
+import Slider from 'react-slick';
+
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
@@ -9,6 +11,9 @@ import cloudy from '../../../assets/images/cloudy.png';
 import partly_cloudy_day from '../../../assets/images/partly_cloudy_day.png';
 import clear_night from '../../../assets/images/clear_night.png';
 import partly_cloudy_night from '../../../assets/images/partly_cloudy_night.png';
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 interface IProps {
 	data: any;
@@ -31,6 +36,7 @@ const HomePageDesign: FC<IProps> = (props) => {
 	const imageMapper: any = {
 		clear_day: clear_day,
 		rainy: rainy,
+		rain: rainy,
 		cloudy: cloudy,
 		partly_cloudy_day: partly_cloudy_day,
 		clear_night: clear_night,
@@ -103,6 +109,14 @@ const HomePageDesign: FC<IProps> = (props) => {
 		]
 	};
 
+	const settings = {
+		dots: false,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 3,
+		slidesToScroll: 1
+	};
+
 	return (
 		<div className='text--white'>
 			<h1>{data.resolvedAddress}</h1>
@@ -127,11 +141,30 @@ const HomePageDesign: FC<IProps> = (props) => {
 					<p className='font-size--20'>Snow Depth: {data.currentConditions.snowdepth}</p>
 				</div>
 			</div>
-			<div className='chart-wrapper'>
+			<div className='chart-wrapper flex justify__content--center'>
 				<Line options={options} data={tempChartData} />
 			</div>
+			<h2>Next 14 days weather forecast</h2>
 			<div>
-				<div></div>
+				<Slider {...settings}>
+					{data.days.map((forecastData: any) => {
+						return (
+							<div className=''>
+								<p className='font-size--20 font-weight--500'>{forecastData.datetime}</p>
+								<img
+									src={imageMapper[forecastData.icon.replace(/-/g, '_')]}
+									alt='weather_img'
+									width='250'
+									height='250'
+									className='mr--20 forcast-icon'
+								/>
+								<p className='font-size--18'>{forecastData.description}</p>
+								<p className='font-size--20 font-weight--500'>Temp-Max: {Math.round(((forecastData.tempmax - 32) * 5) / 9)}°C</p>
+								<p className='font-size--20 font-weight--500'>Temp-Min: {Math.round(((forecastData.tempmin - 32) * 5) / 9)}°C</p>
+							</div>
+						);
+					})}
+				</Slider>
 			</div>
 		</div>
 	);

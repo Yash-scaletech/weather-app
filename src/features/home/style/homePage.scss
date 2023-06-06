@@ -11,7 +11,25 @@
 	-webkit-backdrop-filter: blur(5px);
 
 	.chart-wrapper {
-		width: 600px;
-		height: 300px;
+		height: 400px;
+	}
+
+	.slick-list {
+		max-width: 950px;
+		margin: 0 auto;
+	}
+
+	.slick-prev::before {
+		font-size: 40px !important;
+		margin-left: 20px;
+	}
+
+	.slick-next::before {
+		font-size: 40px !important;
+		margin-left: -55px;
+	}
+
+	.forcast-icon {
+		margin-left: 31px;
 	}
 }

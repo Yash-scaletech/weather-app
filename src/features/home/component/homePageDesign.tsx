@@ -21,6 +21,13 @@ const HomePageDesign: FC<IProps> = (props) => {
 
 	const [hourlyTemp, setHourlyTemp] = useState<any>([]);
 
+	useEffect(() => {
+		const updatedHourlyTemp = data.days[0].hours.map((data: any) => {
+			return Math.round(((data.temp - 32) * 5) / 9);
+		});
+		setHourlyTemp(updatedHourlyTemp);
+	}, [data]);
+
 	const imageMapper: any = {
 		clear_day: clear_day,
 		rainy: rainy,
@@ -84,13 +91,6 @@ const HomePageDesign: FC<IProps> = (props) => {
 		'11 PM'
 	];
 
-	useEffect(() => {
-		const updatedHourlyTemp = data.days[0].hours.map((data: any) => {
-			return Math.round(((data.temp - 32) * 5) / 9);
-		});
-		setHourlyTemp(updatedHourlyTemp);
-	}, [data]);
-
 	const tempChartData = {
 		labels,
 		datasets: [
@@ -129,6 +129,9 @@ const HomePageDesign: FC<IProps> = (props) => {
 			</div>
 			<div className='chart-wrapper'>
 				<Line options={options} data={tempChartData} />
+			</div>
+			<div>
+				<div></div>
 			</div>
 		</div>
 	);

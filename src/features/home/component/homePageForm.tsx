@@ -24,7 +24,7 @@ const HomePageForm = () => {
 	}, [city]);
 
 	return (
-		<div className='wrapper position--absolute'>
+		<div className='wrapper m--0-auto'>
 			<Formik
 				initialValues={{
 					cityName: ''
@@ -35,29 +35,21 @@ const HomePageForm = () => {
 			>
 				{({ handleSubmit, setFieldValue, isValid }) => {
 					return (
-						<form className='flex width:full justify-content:center mt:25' onSubmit={handleSubmit}>
-							<div className='width:full'>
-								<input
-									type='text'
-									id='cname'
-									name='cityName'
-									onChange={({ target }) => {
-										setFieldValue('cityName', target.value);
-									}}
-								/>
-								{errMsg && <div className='error'>Please Enter Valid City Name</div>}
-								<div className='mt:30 mb:30'>
-									<button
-										className={`width:full btn font-size:25 font:bold line-height:22 ${
-											isValid ? 'bg:yellow text:black' : 'bg:lighter-grey text:white no:border'
-										}`}
-										type='submit'
-										disabled={!isValid}
-									>
-										Submit
-									</button>
-								</div>
-							</div>
+						<form className='width--full flex justify__content--center' onSubmit={handleSubmit}>
+							<input
+								className='mr--10 p--10 font-size--14px'
+								type='text'
+								id='cname'
+								name='cityName'
+								placeholder='Enter Cityname for more detail'
+								onChange={({ target }) => {
+									setFieldValue('cityName', target.value);
+								}}
+							/>
+							{errMsg && <div className='error'>Please Enter Valid City Name</div>}
+							<button className='p--10 font-size--14px font-weight--700' type='submit' disabled={!isValid}>
+								Submit
+							</button>
 						</form>
 					);
 				}}

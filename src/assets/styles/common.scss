@@ -722,6 +722,10 @@
 	@include textAlign(center);
 }
 
+.text--white {
+	color: $white-color;
+}
+
 .error {
 	color: $red-color;
 	font-size: $font-size-xs;

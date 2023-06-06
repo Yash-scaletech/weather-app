@@ -6,9 +6,12 @@ interface IProps {
 
 const HomePageDesign: FC<IProps> = (props) => {
 	const { data } = props;
-	console.log(data);
 
-	return <div>HomePageDesign</div>;
+	return (
+		<div>
+			<h1>{data.resolvedAddress}</h1>
+		</div>
+	);
 };
 
 export default HomePageDesign;

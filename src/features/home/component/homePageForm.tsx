@@ -7,11 +7,11 @@ import '../style/homePage.scss';
 
 const HomePageForm = () => {
 	const [data, setData] = useState();
-	const [city, setCity] = useState<string>('');
+	const [city, setCity] = useState<string>('Delhi');
 	const [errMsg, setErrMsg] = useState<boolean>(false);
 
 	useEffect(() => {
-		fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=Y2HHEQQ9TX662V4MMAGAL9E8J`)
+		fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city || 'Delhi'}?key=Y2HHEQQ9TX662V4MMAGAL9E8J`)
 			.then((response) => response.json())
 			.then((json) => {
 				setErrMsg(false);
@@ -22,10 +22,6 @@ const HomePageForm = () => {
 				console.error(error);
 			});
 	}, [city]);
-
-	useEffect(() => {
-		console.log(data);
-	}, [data]);
 
 	return (
 		<div className='wrapper position--absolute'>
@@ -66,7 +62,7 @@ const HomePageForm = () => {
 					);
 				}}
 			</Formik>
-			<HomePageDesign data={data} />
+			{data && <HomePageDesign data={data} />}
 		</div>
 	);
 };

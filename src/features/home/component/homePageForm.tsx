@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { Formik, FormikValues } from 'formik';
+import HomePageDesign from './homePageDesign';
 
 import '../style/homePage.scss';
 
@@ -13,11 +14,12 @@ const HomePageForm = () => {
 		fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?key=Y2HHEQQ9TX662V4MMAGAL9E8J`)
 			.then((response) => response.json())
 			.then((json) => {
+				setErrMsg(false);
 				setData(json);
 			})
 			.catch((error) => {
-				console.error(error);
 				setErrMsg(true);
+				console.error(error);
 			});
 	}, [city]);
 
@@ -64,6 +66,7 @@ const HomePageForm = () => {
 					);
 				}}
 			</Formik>
+			<HomePageDesign data={data} />
 		</div>
 	);
 };

@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { Formik, FormikValues } from 'formik';
 import HomePageDesign from './homePageDesign';
 
+import cross from '../../../assets/images/cross.png';
+
 import '../style/homePage.scss';
 
 const HomePageForm = () => {
@@ -46,7 +48,14 @@ const HomePageForm = () => {
 									setFieldValue('cityName', target.value);
 								}}
 							/>
-							{errMsg && <div className='error'>Please Enter Valid City Name</div>}
+							{errMsg && (
+								<div className='error position--absolute'>
+									<span className='pointer cross-wrapper'>
+										<img src={cross} alt='weather_img' width='50' height='50' onClick={() => setErrMsg(false)} />
+									</span>
+									<h1 className='font-size--30'>Please Enter Valid City Name</h1>
+								</div>
+							)}
 							<button className='p--10 font-size--14px font-weight--700' type='submit' disabled={!isValid}>
 								Search
 							</button>

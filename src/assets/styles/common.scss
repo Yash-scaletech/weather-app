@@ -726,9 +726,6 @@
 	color: $white-color;
 }
 
-.error {
-	color: $red-color;
-	font-size: $font-size-xs;
-	font-weight: $font-extra-bold;
-	@include margin(0);
+.pointer {
+	cursor: pointer;
 }

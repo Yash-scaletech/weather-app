@@ -11,6 +11,8 @@ import cloudy from '../../../assets/images/cloudy.png';
 import partly_cloudy_day from '../../../assets/images/partly_cloudy_day.png';
 import clear_night from '../../../assets/images/clear_night.png';
 import partly_cloudy_night from '../../../assets/images/partly_cloudy_night.png';
+import location from '../../../assets/images/location.png';
+import temperature from '../../../assets/images/temp.png';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -119,10 +121,16 @@ const HomePageDesign: FC<IProps> = (props) => {
 
 	return (
 		<div className='text--white'>
-			<h1>{data.resolvedAddress}</h1>
+			<div className='flex align__items--center justify__content--center mt--10'>
+				<img src={location} alt='weather_img' width='50' height='50' />
+				<h2>{data.resolvedAddress}</h2>
+			</div>
 			<div className='flex justify__content--around'>
 				<div className='text--left'>
-					<p className='font-size--42'>{Math.round(((data.currentConditions.temp - 32) * 5) / 9)}°C</p>
+					<div className='flex align__items--center'>
+						<img src={temperature} alt='weather_img' width='25' height='50' />
+						<p className='font-size--42 ml--5'>{Math.round(((data.currentConditions.temp - 32) * 5) / 9)}°C</p>
+					</div>
 					<p className='font-size--20'>Feels Like: {Math.round(((data.currentConditions.feelslike - 32) * 5) / 9)}°C</p>
 					<p className='font-size--20'>Sunrise: {data.currentConditions.sunrise}</p>
 					<p className='font-size--20'>Sunset: {data.currentConditions.sunset}</p>

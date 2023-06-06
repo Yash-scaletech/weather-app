@@ -32,4 +32,21 @@
 	.forcast-icon {
 		margin-left: 31px;
 	}
+
+	.error {
+		color: red;
+		width: 500px;
+		padding: 10px;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		border-radius: 16px;
+		background: rgba(80, 80, 80, 0.9);
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+	}
+
+	.cross-wrapper {
+		margin-top: 11px;
+		float: right;
+	}
 }

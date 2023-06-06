@@ -155,9 +155,9 @@ const HomePageDesign: FC<IProps> = (props) => {
 			<h2>Next 14 days weather forecast</h2>
 			<div>
 				<Slider {...settings}>
-					{data.days.map((forecastData: any) => {
+					{data.days.map((forecastData: any, index: number) => {
 						return (
-							<div className=''>
+							<div key={index}>
 								<p className='font-size--20 font-weight--500'>{forecastData.datetime}</p>
 								<img
 									src={imageMapper[forecastData.icon.replace(/-/g, '_')]}

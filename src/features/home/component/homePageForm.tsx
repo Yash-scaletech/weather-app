@@ -13,7 +13,11 @@ const HomePageForm = () => {
 	const [errMsg, setErrMsg] = useState<boolean>(false);
 
 	useEffect(() => {
-		fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city || 'Delhi'}?key=${process.env.API_KEY}`)
+		fetch(
+			`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city || 'Delhi'}?key=${
+				process.env.REACT_APP_API_KEY
+			}`
+		)
 			.then((response) => response.json())
 			.then((json) => {
 				setErrMsg(false);

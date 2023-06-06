@@ -4,7 +4,7 @@ import { Formik, FormikValues } from 'formik';
 
 import '../style/homePage.scss';
 
-const HomePage = () => {
+const HomePageForm = () => {
 	const [data, setData] = useState();
 	const [city, setCity] = useState<string>('');
 	const [errMsg, setErrMsg] = useState<boolean>(false);
@@ -68,4 +68,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default HomePageForm;

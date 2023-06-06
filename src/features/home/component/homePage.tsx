@@ -5,7 +5,7 @@ import { Formik, FormikValues } from 'formik';
 import '../style/homePage.scss';
 
 const HomePage = () => {
-	const [data, setData] = useState<any>(null);
+	const [data, setData] = useState();
 	const [city, setCity] = useState<string>('');
 
 	useEffect(() => {

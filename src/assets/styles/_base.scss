@@ -14,7 +14,9 @@ body {
 	@include margin(0);
 	@include padding(0);
 	color: $black-color;
-	background-color: #1aa1f2;
+	height: 100vh;
+	background: rgb(2, 0, 36);
+	background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 102, 121, 1) 50%, rgba(0, 212, 255, 1) 100%);
 }
 
 ::-webkit-scrollbar {
